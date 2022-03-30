@@ -4,5 +4,5 @@ title: About
 
 ---
 
-# Some info
+# Sobre Mi
 ...about how cool you are ;
