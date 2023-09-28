@@ -1,0 +1,100 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del header */
+header {
+    /*background-color: #333;*/
+    color: white;
+    position: fixed;
+    top: 0;
+	padding-top: 20px;
+	padding-bottom:20px;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.banner {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #222;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-content {
+    display: none;
+}
+
+.banner-content h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Otros estilos de secciones */
+.contacto, .formulario, .sobre-mi, .servicios, .clientes, .trabajos {
+    padding: 50px;
+}
+
+/* Estilos del footer */
+footer {
+    /*background-color: #333;*/
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+	padding-top: 20px;
+	padding-bottom:20px;
+    width: 100%;
+}
+
+/* Estilos para el fondo del encabezado y del pie de página */
+.matrix-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#matrix-header {
+    background: black;
+    opacity: 0.7;
+}
+
+#matrix-footer {
+    background: black;
+    opacity: 0.7;
+}
