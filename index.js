@@ -1,12 +1,28 @@
-// Obtén una referencia al botón
-const colorButton = document.getElementById("colorButton");
+const endpointURL = "http://181.172.228.80/CodeChallenge/Dentidesk-Code-Challenge-Administrador-Financiero/api/v1/2023/index.php?comando=transactions";
 
-// Función para cambiar el color de fondo
-function cambiarColorFondo() {
-    const colores = ["#3498db", "#e74c3c", "#2ecc71", "#f39c12"];
-    const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
-    document.body.style.backgroundColor = colorAleatorio;
+function loadTable() {
+    fetch(endpointURL)
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector("#transactionTable tbody");
+            tableBody.innerHTML = "";
+
+            data.forEach(transaction => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${transaction.id}</td>
+                    <td>${transaction.description}</td>
+                    <td>${transaction.amount}</td>
+                    <td>${transaction.type}</td>
+                    <td>${transaction.date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error("Error al cargar los datos:", error);
+        });
 }
 
-// Agrega un evento de clic al botón para cambiar el color de fondo
-colorButton.addEventListener("click", cambiarColorFondo);
+// Cargar la tabla al cargar la página
+loadTable();
