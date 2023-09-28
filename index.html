@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de Transacciones</title>
-    <link rel="stylesheet" href="index.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h1>Tabla de Transacciones</h1>
@@ -20,7 +36,37 @@
         </thead>
         <tbody></tbody>
     </table>
-    
-    <script src="index.js"></script>
+    <script>
+        // URL del endpoint JSON
+        const endpointURL = "http://181.172.228.80/CodeChallenge/Dentidesk-Code-Challenge-Administrador-Financiero/api/v1/2023/index.php?comando=transactions";
+
+        // Función para cargar los datos JSON y crear la tabla
+        function loadTable() {
+            fetch(endpointURL)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#transactionTable tbody");
+                    tableBody.innerHTML = "";
+
+                    data.forEach(transaction => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${transaction.id}</td>
+                            <td>${transaction.description}</td>
+                            <td>${transaction.amount}</td>
+                            <td>${transaction.type}</td>
+                            <td>${transaction.date}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error al cargar los datos:", error);
+                });
+        }
+
+        // Cargar la tabla al cargar la página
+        loadTable();
+    </script>
 </body>
 </html>
