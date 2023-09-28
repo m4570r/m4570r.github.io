@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>IndexedDB Example</h1>
+    
+    <div>
+        <h2>Operaciones en IndexedDB</h2>
+        <button id="clearData">Limpiar Datos</button>
+        <button id="insertData">Insertar Datos</button>
+        <button id="getData">Obtener Datos</button>
+        <button id="updateData">Actualizar Datos</button>
+        <button id="deleteData">Eliminar Datos</button>
+    </div>
+
+    <div id="output">
+        <!-- Aquí se mostrarán los resultados de las operaciones -->
+    </div>
+
+    <script>
+        // Funciones de utilidad para convertir la API de listeners de IndexedDB a promesas
+        function toRequestPromise(request) {
+            return new Promise((resolve, reject) => {
+                const unlisten = () => {
+                    request.removeEventListener('success', success);
+                    request.removeEventListener('error', error);
+                };
+                const success = () => {
+                    resolve(request.result);
+                    unlisten();
+                };
+                const error = () => {
+                    reject(request.error);
+                    unlisten();
+                };
+                request.addEventListener('success', success);
+                request.addEventListener('error', error);
+            });
+        }
+        
+        function toTransactionPromise(database, transaction) {
+            return new Promise((resolve, reject) => {
+                const unlisten = () => {
+                    transaction.removeEventListener('success', success);
+                    transaction.removeEventListener('error', error);
+                };
+                const success = (e) => {
+                    resolve(database, e);
+                    unlisten();
+                };
+                const error = (e) => {
+                    reject(database, e);
+                    unlisten();
+                };
+                transaction.addEventListener('complete', success);
+                transaction.addEventListener('error', error);
+            });
+        }
+
+        // Manejo de eventos para los botones
+        document.getElementById("clearData").addEventListener("click", function () {
+            // Código para limpiar datos en IndexedDB
+            displayResult("Datos limpiados");
+        });
+
+        document.getElementById("insertData").addEventListener("click", function () {
+            // Código para insertar datos en IndexedDB
+            displayResult("Datos insertados");
+        });
+
+        document.getElementById("getData").addEventListener("click", function () {
+            // Código para obtener datos de IndexedDB
+            displayResult("Datos obtenidos");
+        });
+
+        document.getElementById("updateData").addEventListener("click", function () {
+            // Código para actualizar datos en IndexedDB
+            displayResult("Datos actualizados");
+        });
+
+        document.getElementById("deleteData").addEventListener("click", function () {
+            // Código para eliminar datos de IndexedDB
+            displayResult("Datos eliminados");
+        });
+
+        // Función para mostrar resultados en la página
+        function displayResult(message) {
+            const output = document.getElementById("output");
+            const paragraph = document.createElement("p");
+            paragraph.textContent = message;
+            output.appendChild(paragraph);
+        }
+    </script>
+</body>
+</html>
