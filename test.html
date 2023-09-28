@@ -22,6 +22,11 @@
             font-size: 14px;
             cursor: pointer;
         }
+
+        input {
+            padding: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -29,6 +34,7 @@
     
     <div>
         <h2>Operaciones en IndexedDB</h2>
+        <input type="text" id="dataInput" placeholder="Ingrese un dato">
         <button id="clearData">Limpiar Datos</button>
         <button id="insertData">Insertar Datos</button>
         <button id="getData">Obtener Datos</button>
@@ -87,23 +93,26 @@
         });
 
         document.getElementById("insertData").addEventListener("click", function () {
+            const inputData = document.getElementById("dataInput").value;
             // Código para insertar datos en IndexedDB
-            displayResult("Datos insertados");
+            insertData(inputData);
         });
 
         document.getElementById("getData").addEventListener("click", function () {
             // Código para obtener datos de IndexedDB
-            displayResult("Datos obtenidos");
+            getData();
         });
 
         document.getElementById("updateData").addEventListener("click", function () {
+            const inputData = document.getElementById("dataInput").value;
             // Código para actualizar datos en IndexedDB
-            displayResult("Datos actualizados");
+            updateData(inputData);
         });
 
         document.getElementById("deleteData").addEventListener("click", function () {
+            const inputData = document.getElementById("dataInput").value;
             // Código para eliminar datos de IndexedDB
-            displayResult("Datos eliminados");
+            deleteData(inputData);
         });
 
         // Función para mostrar resultados en la página
@@ -112,6 +121,124 @@
             const paragraph = document.createElement("p");
             paragraph.textContent = message;
             output.appendChild(paragraph);
+        }
+
+        // Inicializar la base de datos
+        const dbName = "myDatabase";
+        const dbVersion = 1;
+        let db;
+
+        const openRequest = indexedDB.open(dbName, dbVersion);
+
+        openRequest.onupgradeneeded = function (event) {
+            db = event.target.result;
+            const objectStore = db.createObjectStore("store", { keyPath: "id", autoIncrement: true });
+            objectStore.createIndex('data', 'data', { unique: false });
+        };
+
+        openRequest.onsuccess = function (event) {
+            db = event.target.result;
+        };
+
+        openRequest.onerror = function (event) {
+            console.error("Error al abrir la base de datos", event);
+        };
+
+        // Función para insertar datos en la base de datos
+        function insertData(data) {
+            const transaction = db.transaction("store", "readwrite");
+            const store = transaction.objectStore("store");
+            const item = { data };
+            const request = store.add(item);
+
+            request.onsuccess = function (event) {
+                displayResult("Datos insertados correctamente");
+                document.getElementById("dataInput").value = "";
+            };
+
+            request.onerror = function (event) {
+                console.error("Error al insertar datos", event);
+            };
+        }
+
+        // Función para obtener datos de la base de datos
+        function getData() {
+            const transaction = db.transaction("store", "readonly");
+            const store = transaction.objectStore("store");
+            const request = store.getAll();
+
+            request.onsuccess = function (event) {
+                const data = event.target.result.map(item => item.data);
+                displayResult("Datos obtenidos: " + data.join(", "));
+            };
+
+            request.onerror = function (event) {
+                console.error("Error al obtener datos", event);
+            };
+        }
+
+        // Función para actualizar datos en la base de datos
+        function updateData(newData) {
+            const transaction = db.transaction("store", "readwrite");
+            const store = transaction.objectStore("store");
+
+            // Obtener el primer registro
+            const request = store.openCursor();
+
+            request.onsuccess = function (event) {
+                const cursor = event.target.result;
+
+                if (cursor) {
+                    const item = cursor.value;
+                    item.data = newData;
+                    const updateRequest = cursor.update(item);
+
+                    updateRequest.onsuccess = function (event) {
+                        displayResult("Datos actualizados correctamente");
+                        document.getElementById("dataInput").value = "";
+                    };
+
+                    updateRequest.onerror = function (event) {
+                        console.error("Error al actualizar datos", event);
+                    };
+                }
+            };
+
+            request.onerror = function (event) {
+                console.error("Error al abrir cursor", event);
+            };
+        }
+
+        // Función para eliminar datos de la base de datos
+        function deleteData(dataToDelete) {
+            const transaction = db.transaction("store", "readwrite");
+            const store = transaction.objectStore("store");
+
+            // Obtener el registro que coincide con el dato proporcionado
+            const index = store.index("data");
+            const request = index.getKey(dataToDelete);
+
+            request.onsuccess = function (event) {
+                const key = event.target.result;
+                if (key !== undefined) {
+                    const deleteRequest = store.delete(key);
+
+                    deleteRequest.onsuccess = function (event) {
+                        displayResult("Datos eliminados correctamente");
+                        document.getElementById("dataInput").value = "";
+                    };
+
+                    deleteRequest.onerror = function (event) {
+                        console.error("Error al eliminar datos", event);
+                    };
+                } else {
+                    displayResult("No se encontraron datos para eliminar");
+                }
+            };
+
+            request.onerror = function (event) {
+                console.error("Error al obtener clave para eliminar", event);
+            };
         }
     </script>
 </body>
