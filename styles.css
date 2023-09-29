@@ -1,0 +1,71 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Estilos del banner */
+.banner {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #222;
+}
+
+.banner h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Otros estilos de secciones */
+.contacto, .formulario, .sobre-mi, .servicios, .clientes, .trabajos {
+    padding: 50px;
+}
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
