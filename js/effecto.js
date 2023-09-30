@@ -29,3 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bannerContents[currentIndex].classList.add("explosion");
   }
 });
+
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault(); // Evita que se muestre el menú contextual
+});
