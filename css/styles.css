@@ -34,7 +34,7 @@ nav {
 
 .menu li a {
     text-decoration: none;
-    color: white;
+    color: #0f0;
 }
 
 .menu {
@@ -283,7 +283,7 @@ footer {
     }
 
     ._layer {
-        background: white;
+        background: black;
         margin-bottom: 4px;
         border-radius: 2px;
         width: 28px;

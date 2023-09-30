@@ -1,233 +1,232 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/effecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     <title>Miguel Ángel González | m4570r</title>
 </head>
-
 <body>
 
     <header>
 
 
-        <div class="logo">
-            <div id="logo-text"><span id="cursor"></span></div>
-        </div>
+    <div class="logo">
+        <div id="logo-text"><span id="cursor"></span></div>
+    </div>
         <div class="hamburger">
             <div class="_layer -top"></div>
             <div class="_layer -mid"></div>
             <div class="_layer -bottom"></div>
         </div>
-        <nav>
+		<nav>
 
-            <div class="menu">
-                <ul>
-                    <li><a href="#" class="modal-trigger" data-modal-id="curriculum-modal">C.V.</a></li>
-                    <li><a href="#" class="modal-trigger" data-modal-id="servicios-modal">Servicios</a></li>
-                    <li><a href="#" class="modal-trigger" data-modal-id="contactame-modal">Contacto</a></li>
-                </ul>
-            </div>
-            <!-- Menú de hamburguesa -->
-            <div class="mobile-menu">
-                <div class="hamburger">
-                    <div class="hamburger-icon">
-                        <i class="fas fa-bars"></i> <!-- Icono de menú hamburguesa -->
-                    </div>
-                </div>
-                <div>
-                    <ul>
-                        <li><a href="#" class="modal-trigger black" data-modal-id="curriculum-modal">C.V.</a></li>
-                        <li><a href="#" class="modal-trigger black" data-modal-id="servicios-modal">Servicios</a></li>
-                        <li><a href="#" class="modal-trigger black" data-modal-id="contactame-modal">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        </nav>
-
-        <div class="banner">
-            <div class="banner-content" style="background-color:black;z-index:1000;">
-                <h1>Bienvenido a mi página web</h1>
-            </div>
-            <div class="banner-content" style="background-color:black;z-index:1000;">
-                <h1>Aquí encontrarás información</h1>
-            </div>
-            <div class="banner-content" style="background-color:black;z-index:1000;">
-                <h1>Hoja de vida, Servicios y Contacto</h1>
-            </div>
-            <div class="progress-bar">
-                <div class="progress"></div>
+    <div class="menu">
+        <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="curriculum-modal">C.V.</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="servicios-modal">Servicios</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="contactame-modal">Contacto</a></li>
+        </ul>
+    </div>
+    <!-- Menú de hamburguesa -->
+    <div class="mobile-menu">
+        <div class="hamburger">
+            <div class="hamburger-icon">
+                <i class="fas fa-bars"></i> <!-- Icono de menú hamburguesa -->
             </div>
         </div>
+		<div>
+        <ul>
+            <li><a href="#" class="modal-trigger black" data-modal-id="curriculum-modal">C.V.</a></li>
+            <li><a href="#" class="modal-trigger black" data-modal-id="servicios-modal">Servicios</a></li>
+            <li><a href="#" class="modal-trigger black" data-modal-id="contactame-modal">Contacto</a></li>
+        </ul>
+		</div>
+        <div class="overlay"></div>
+    </div>
+</nav>
 
+	<div class="banner">
+    <div class="banner-content" style="background-color:black;z-index:1000;">
+        <h1>Bienvenido a mi página web</h1>
+    </div>
+    <div class="banner-content" style="background-color:black;z-index:1000;">
+        <h1>Aquí encontrarás información</h1>
+    </div>
+    <div class="banner-content" style="background-color:black;z-index:1000;">
+        <h1>Hoja de vida, Servicios y Contacto</h1>
+    </div>
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+</div>
+		
         <div class="matrix-effect" id="matrix-header"></div>
     </header>
+	
 
-
-
+    
     <section class="contacto">
         <!-- Cuadro estilizado con datos de contacto -->
     </section>
-
+    
     <section class="formulario">
         <!-- Formulario de contacto -->
     </section>
-
+    
     <section class="sobre-mi">
         <!-- Información sobre mí -->
     </section>
-
+    
     <section class="servicios">
         <!-- Presentación de servicios -->
     </section>
-
+    
     <section class="clientes">
         <!-- Sección de clientes -->
     </section>
-
+    
     <section class="trabajos">
         <!-- Trabajos realizados -->
     </section>
-
-
+    
+    
     <!-- Modales -->
-    <div class="modal" id="curriculum-modal">
-        <div class="modal-content">
-            <!-- Contenido del modal para el Curriculum Vitae 
+<div class="modal" id="curriculum-modal">
+    <div class="modal-content">
+        <!-- Contenido del modal para el Curriculum Vitae 
         <p>Mensaje o información sobre el Curriculum Vitae.</p>-->
-            <div id="navigation_controls">
-                <button id="go_previous"><</button>
-                        <input id="current_page" value="1" type="number" style="width: 20px;text-align: center;" />
-                        <button id="go_next">></button>
+		<div id="navigation_controls">
+    <button id="go_previous"><</button>
+    <input id="current_page" value="1" type="number" style="width: 20px;text-align: center;" />
+    <button id="go_next">></button>
 
 
-                        <a id="download_button" href="cv.pdf" download>Descargar</a>
+    <a id="download_button" href="cv.pdf" download>Descargar</a>
 
 
-                        <button id="zoom_in">+</button>
-                        <button id="zoom_out">-</button>
-            </div>
-            <div id="canvas_container">
-                <canvas id="pdf_renderer"></canvas>
-            </div>
+    <button id="zoom_in">+</button>
+    <button id="zoom_out">-</button>
+</div>
+        <div id="canvas_container">
+            <canvas id="pdf_renderer"></canvas>
+        </div>
 
+    </div>
+</div>
+
+
+
+
+<div class="modal" id="servicios-modal">
+    <div class="modal-content">
+        <div class="service-card" id="service1">
+            <h3>Desarrollo de Software</h3>
+            <p>Ofrecemos servicios de desarrollo de software a medida para satisfacer tus necesidades.</p>
+        </div>
+        <div class="service-card" id="service2">
+            <h3>Desarrollo Web</h3>
+            <p>Creación de sitios web modernos y funcionales, adaptados a tus requerimientos.</p>
+        </div>
+        <div class="service-card" id="service3">
+            <h3>Desarrollo de Aplicaciones</h3>
+            <p>Desarrollamos aplicaciones móviles y de escritorio para diversas plataformas.</p>
+        </div>
+        <div class="service-card" id="service4">
+            <h3>Soporte</h3>
+            <p>Brindamos soporte técnico y mantenimiento para tus sistemas y aplicaciones.</p>
         </div>
     </div>
+</div>
 
 
-
-
-    <div class="modal" id="servicios-modal">
-        <div class="modal-content">
-            <div class="service-card" id="service1">
-                <h3>Desarrollo de Software</h3>
-                <p>Ofrecemos servicios de desarrollo de software a medida para satisfacer tus necesidades.</p>
-            </div>
-            <div class="service-card" id="service2">
-                <h3>Desarrollo Web</h3>
-                <p>Creación de sitios web modernos y funcionales, adaptados a tus requerimientos.</p>
-            </div>
-            <div class="service-card" id="service3">
-                <h3>Desarrollo de Aplicaciones</h3>
-                <p>Desarrollamos aplicaciones móviles y de escritorio para diversas plataformas.</p>
-            </div>
-            <div class="service-card" id="service4">
-                <h3>Soporte</h3>
-                <p>Brindamos soporte técnico y mantenimiento para tus sistemas y aplicaciones.</p>
-            </div>
+<div class="modal" id="contactame-modal">
+    <div class="modal-content">
+        <!-- Contenido del modal para Contacto -->
+        <div class="contact-card">
+            <h2>Miguel Ángel González</h2>
+            <p>Desarrollador</p>
+            <p>Teléfono: +56922265898</p>
+            <p>Email: mgonzalez.gnu@gmail.com</p>
+            <p>Dirección: Ramon Sanfurgo Santa Cruz</p>
         </div>
     </div>
+</div>
 
-
-    <div class="modal" id="contactame-modal">
-        <div class="modal-content">
-            <!-- Contenido del modal para Contacto -->
-            <div class="contact-card">
-                <h2>Miguel Ángel González</h2>
-                <p>Desarrollador</p>
-                <p>Teléfono: +56922265898</p>
-                <p>Email: mgonzalez.gnu@gmail.com</p>
-                <p>Dirección: Ramon Sanfurgo Santa Cruz</p>
-            </div>
-        </div>
+	    <div class="terminal" style="position:absolute;bottom:1px;">
+        <pre id="output" ></pre>
     </div>
+	
+	<script>
+    var myState = {
+        pdf: null,
+        currentPage: 1,
+        zoom: 0.5
+    }
 
-    <div class="terminal" style="position:absolute;bottom:1px;">
-        <pre id="output"></pre>
-    </div>
+    pdfjsLib.getDocument('cv.pdf').then((pdf) => {
+        myState.pdf = pdf;
+        render();
+    });
 
-    <script>
-        var myState = {
-            pdf: null,
-            currentPage: 1,
-            zoom: 0.5
-        }
-
-        pdfjsLib.getDocument('cv.pdf').then((pdf) => {
-            myState.pdf = pdf;
-            render();
-        });
-
-        function render() {
-            myState.pdf.getPage(myState.currentPage).then((page) => {
-                var canvas = document.getElementById("pdf_renderer");
-                var ctx = canvas.getContext('2d');
-                var viewport = page.getViewport(myState.zoom);
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-                page.render({
-                    canvasContext: ctx,
-                    viewport: viewport
-                });
+    function render() {
+        myState.pdf.getPage(myState.currentPage).then((page) => {
+            var canvas = document.getElementById("pdf_renderer");
+            var ctx = canvas.getContext('2d');
+            var viewport = page.getViewport(myState.zoom);
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            page.render({
+                canvasContext: ctx,
+                viewport: viewport
             });
-        }
-
-        document.getElementById('go_previous').addEventListener('click', (e) => {
-            if (myState.pdf == null || myState.currentPage == 1) return;
-            myState.currentPage -= 1;
-            document.getElementById("current_page").value = myState.currentPage;
-            render();
         });
+    }
 
-        document.getElementById('go_next').addEventListener('click', (e) => {
-            if (myState.pdf == null || myState.currentPage >= myState.pdf.numPages) return;
-            myState.currentPage += 1;
-            document.getElementById("current_page").value = myState.currentPage;
-            render();
-        });
+    document.getElementById('go_previous').addEventListener('click', (e) => {
+        if (myState.pdf == null || myState.currentPage == 1) return;
+        myState.currentPage -= 1;
+        document.getElementById("current_page").value = myState.currentPage;
+        render();
+    });
 
-        document.getElementById('current_page').addEventListener('keypress', (e) => {
-            if (myState.pdf == null) return;
-            var code = (e.keyCode ? e.keyCode : e.which);
-            if (code == 13) {
-                var desiredPage = document.getElementById('current_page').valueAsNumber;
-                if (desiredPage >= 1 && desiredPage <= myState.pdf.numPages) {
-                    myState.currentPage = desiredPage;
-                    document.getElementById("current_page").value = desiredPage;
-                    render();
-                }
+    document.getElementById('go_next').addEventListener('click', (e) => {
+        if (myState.pdf == null || myState.currentPage >= myState.pdf.numPages) return;
+        myState.currentPage += 1;
+        document.getElementById("current_page").value = myState.currentPage;
+        render();
+    });
+
+    document.getElementById('current_page').addEventListener('keypress', (e) => {
+        if (myState.pdf == null) return;
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            var desiredPage = document.getElementById('current_page').valueAsNumber;
+            if (desiredPage >= 1 && desiredPage <= myState.pdf.numPages) {
+                myState.currentPage = desiredPage;
+                document.getElementById("current_page").value = desiredPage;
+                render();
             }
-        });
+        }
+    });
 
-        document.getElementById('zoom_in').addEventListener('click', (e) => {
-            if (myState.pdf == null) return;
-            myState.zoom += 0.5;
-            render();
-        });
+    document.getElementById('zoom_in').addEventListener('click', (e) => {
+        if (myState.pdf == null) return;
+        myState.zoom += 0.5;
+        render();
+    });
 
-        document.getElementById('zoom_out').addEventListener('click', (e) => {
-            if (myState.pdf == null) return;
-            myState.zoom -= 0.5;
-            render();
-        });
-    </script>
+    document.getElementById('zoom_out').addEventListener('click', (e) => {
+        if (myState.pdf == null) return;
+        myState.zoom -= 0.5;
+        render();
+    });
+</script>
 
     <script src="./js/script.js" defer></script>
+	<script src="./js/effecto.js" defer></script>
 </body>
-
 </html>
