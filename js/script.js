@@ -1,5 +1,5 @@
 // JavaScript para mostrar/ocultar el menú hamburguesa
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
     const overlay = document.querySelector('.overlay');
@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.style.display = 'none';
         overlay.style.display = 'none';
     });
-	
-	// Mostrar el menú normal por defecto
-    //menu.style.display = 'block';
 
     const bannerContents = document.querySelectorAll('.banner-content');
     let currentBannerIndex = 0;
@@ -122,9 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         animateMatrix();
-		
-		
-		
+
     }
 
     // Función para abrir el modal
@@ -141,165 +136,123 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Agregar manejadores de eventos para abrir y cerrar los modales
     const modalTriggers = document.querySelectorAll('.modal-trigger');
-    modalTriggers.forEach(function(trigger) {
-        trigger.addEventListener('click', function() {
+    modalTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
             const modalId = this.getAttribute('data-modal-id');
             openModal(modalId);
         });
     });
 
     const modalCloses = document.querySelectorAll('.modal .modal-content');
-    modalCloses.forEach(function(close) {
-        close.addEventListener('click', function(event) {
+    modalCloses.forEach(function (close) {
+        close.addEventListener('click', function (event) {
             event.stopPropagation(); // Evitar que el clic en el contenido del modal cierre el modal
         });
     });
 
     const modals = document.querySelectorAll('.modal');
-    modals.forEach(function(modal) {
-        modal.addEventListener('click', function() {
+    modals.forEach(function (modal) {
+        modal.addEventListener('click', function () {
             closeModal(this.getAttribute('id'));
         });
     });
 
     // Evitar que el clic en el contenido del modal cierre el modal
     const modalContents = document.querySelectorAll('.modal-content');
-    modalContents.forEach(function(content) {
-        content.addEventListener('click', function(event) {
+    modalContents.forEach(function (content) {
+        content.addEventListener('click', function (event) {
             event.stopPropagation();
         });
     });
-	
-	
-	
-	
-	
-	
 
     // Crear el efecto "Matrix" en el encabezado y el pie de página
     createMatrixEffect(headerMatrix);
     createMatrixEffect(footerMatrix);
-	
-	
-	
-const terminalOutput = document.getElementById('output');
-const commands = [
-    { command: 'ssh-keygen -t rsa -b 4096', response: 'mv directorio/dev/null' },
-    { command: 'pwd', response: '/home/m4570r' },
-    { command: 'dd if=/dev/hda of=/dev/hdb', response: 'service apache2 start' },
-	{ command: 'wget http://www.us-proxy.org/', response: 'metagoofil -d nmap.org -t' },
-    { command: 'theharvester -d nmap.org -l 200 -b bing', response: 'nmap -n -sn 192.168.0.0/24' },
-    { command: 'sudo /etc/init.d/snmp start', response: 'smtp-user-enum -M /usr/share/metasploit' },
-	{ command: 'nmap -n -Pn --script vuln 192.168.0.16', response: 'searchsploit vsftpd' },
-    { command: 'service postgresql start', response: 'netstat -tna | grep 5432' },
-    { command: 'msfconsole', response: 'meterpreter > background' },
-	{ command: 'root@kali:~# ftp 192.168.1.34', response: 'Connected to 192.168.1.34.' },
-    { command: 'root@kali:~# nc -nvv 192.168.1.34 6200', response: '[*] Connecting to the SMB service... ' },
-    { command: 'rsh -l root 192.168.1.34 /bin/bash', response: 'smbclient -L \\192.168.1.34' },
-	{ command: 'msfconsole', response: 'meterpreter > background' },
-	{ command: 'root@kali:~# ftp 192.168.1.34', response: 'Connected to 192.168.1.34.' },
-    { command: 'root@kali:~# nc -nvv 192.168.1.34 6200', response: '[*] Connecting to the SMB service... ' },
-	{ command: 'ssh-keygen -t rsa -b 4096', response: 'mv directorio/dev/null' },
-    { command: 'pwd', response: '/home/m4570r' },
-    { command: 'dd if=/dev/hda of=/dev/hdb', response: 'service apache2 start' },
-	//{ command: 'wget http://www.us-proxy.org/', response: 'metagoofil -d nmap.org -t' },
-    //{ command: 'theharvester -d nmap.org -l 200 -b bing', response: 'nmap -n -sn 192.168.0.0/24' },
-    //{ command: 'sudo /etc/init.d/snmp start', response: 'smtp-user-enum -M /usr/share/metasploit' },
-	//{ command: 'nmap -n -Pn --script vuln 192.168.0.16', response: 'searchsploit vsftpd' },
-    //{ command: 'service postgresql start', response: 'netstat -tna | grep 5432' },
-    //{ command: 'msfconsole', response: 'meterpreter > background' },
-	//{ command: 'root@kali:~# ftp 192.168.1.34', response: 'Connected to 192.168.1.34.' },
-    //{ command: 'root@kali:~# nc -nvv 192.168.1.34 6200', response: '[*] Connecting to the SMB service... ' },
-	
-    // Agrega más comandos y respuestas aquí
-];
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+    const terminalOutput = document.getElementById('output');
+    const commands = [
+        { command: 'ssh-keygen -t rsa -b 4096', response: 'mv directorio/dev/null' },
+        { command: 'pwd', response: '/home/m4570r' },
+        { command: 'dd if=/dev/hda of=/dev/hdb', response: 'service apache2 start' },
+        { command: 'wget http://www.us-proxy.org/', response: 'metagoofil -d nmap.org -t' },
+        { command: 'theharvester -d nmap.org -l 200 -b bing', response: 'nmap -n -sn 192.168.0.0/24' },
+        { command: 'sudo /etc/init.d/snmp start', response: 'smtp-user-enum -M /usr/share/metasploit' },
+        { command: 'nmap -n -Pn --script vuln 192.168.0.16', response: 'searchsploit vsftpd' },
+        { command: 'service postgresql start', response: 'netstat -tna | grep 5432' },
+        { command: 'msfconsole', response: 'meterpreter > background' },
+        { command: 'root@kali:~# ftp 192.168.1.34', response: 'Connected to 192.168.1.34.' },
+        { command: 'root@kali:~# nc -nvv 192.168.1.34 6200', response: '[*] Connecting to the SMB service... ' },
+        { command: 'rsh -l root 192.168.1.34 /bin/bash', response: 'smbclient -L \\192.168.1.34' },
+        { command: 'msfconsole', response: 'meterpreter > background' },
+        { command: 'root@kali:~# ftp 192.168.1.34', response: 'Connected to 192.168.1.34.' },
+        { command: 'root@kali:~# nc -nvv 192.168.1.34 6200', response: '[*] Connecting to the SMB service... ' },
+        { command: 'ssh-keygen -t rsa -b 4096', response: 'mv directorio/dev/null' },
+        { command: 'pwd', response: '/home/m4570r' },
+        { command: 'dd if=/dev/hda of=/dev/hdb', response: 'service apache2 start' },
+        //{ command: 'wget http://www.us-proxy.org/', response: 'metagoofil -d nmap.org -t' },
+        //{ command: 'theharvester -d nmap.org -l 200 -b bing', response: 'nmap -n -sn 192.168.0.0/24' },
+        //{ command: 'sudo /etc/init.d/snmp start', response: 'smtp-user-enum -M /usr/share/metasploit' },
+        //{ command: 'nmap -n -Pn --script vuln 192.168.0.16', response: 'searchsploit vsftpd' },
+        //{ command: 'service postgresql start', response: 'netstat -tna | grep 5432' },
+        //{ command: 'msfconsole', response: 'meterpreter > background' },
+        //{ command: 'root@kali:~# ftp 192.168.1.34', response: 'Connected to 192.168.1.34.' },
+        //{ command: 'root@kali:~# nc -nvv 192.168.1.34 6200', response: '[*] Connecting to the SMB service... ' },
 
-async function typeCommand(index) {
-    if (index < commands.length) {
-        const { command, response } = commands[index];
-        
-        for (let i = 0; i < command.length; i++) {
-            terminalOutput.textContent += `${command.charAt(i)}`;
-            await sleep(100); // Espera 50 milisegundos por carácter
-        }
-        terminalOutput.textContent += '\n'; // Nueva línea después del comando
-        
-        await sleep(2000); // Espera 1 segundo antes de mostrar la respuesta
-        
-        for (let i = 0; i < response.length; i++) {
-            terminalOutput.textContent += `${response.charAt(i)}`;
-            terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            await sleep(70); // Espera 30 milisegundos por carácter
-        }
-        
-        terminalOutput.textContent += '\n'; // Doble salto de línea después de la respuesta
-        
-        await sleep(5000); // Espera 1 segundo antes de pasar al siguiente comando
-        await typeCommand(index + 1);
-    } else {
-        // Se completaron todos los comandos, esperar 20 segundos y luego reiniciar
-        await sleep(20000); // Esperar 20 segundos
-        terminalOutput.textContent = ''; // Limpiar el contenido de la terminal
-        typeCommand(0); // Reiniciar la simulación desde el primer comando
+        // Agrega más comandos y respuestas aquí
+    ];
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
-}
 
-typeCommand(0);
+    async function typeCommand(index) {
+        if (index < commands.length) {
+            const { command, response } = commands[index];
+
+            for (let i = 0; i < command.length; i++) {
+                terminalOutput.textContent += `${command.charAt(i)}`;
+                await sleep(100); // Espera 50 milisegundos por carácter
+            }
+            terminalOutput.textContent += '\n'; // Nueva línea después del comando
+
+            await sleep(2000); // Espera 1 segundo antes de mostrar la respuesta
+
+            for (let i = 0; i < response.length; i++) {
+                terminalOutput.textContent += `${response.charAt(i)}`;
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                await sleep(70); // Espera 30 milisegundos por carácter
+            }
+
+            terminalOutput.textContent += '\n'; // Doble salto de línea después de la respuesta
+
+            await sleep(5000); // Espera 1 segundo antes de pasar al siguiente comando
+            await typeCommand(index + 1);
+        } else {
+            // Se completaron todos los comandos, esperar 20 segundos y luego reiniciar
+            await sleep(20000); // Esperar 20 segundos
+            terminalOutput.textContent = ''; // Limpiar el contenido de la terminal
+            typeCommand(0); // Reiniciar la simulación desde el primer comando
+        }
+    }
+
+    typeCommand(0);
 
 });
 
-    // Agrega un evento clic al botón "Cerrar Menú"
-    document.getElementById("cerrar-menu").addEventListener("click", function () {
-        // Cierra el menú al hacer clic en el botón
-        mainMenu.classList.remove("is-active");
-        mobileMenu.classList.remove("is-active");
-    });
-	
-	
+// Agrega un evento clic al botón "Cerrar Menú"
+document.getElementById("cerrar-menu").addEventListener("click", function () {
+    // Cierra el menú al hacer clic en el botón
+    mainMenu.classList.remove("is-active");
+    mobileMenu.classList.remove("is-active");
+});
+
+
 const texts = [
     "Bienvenido a mi página web",
     "Aquí encontrarás información",
     "Hoja de vida, Servicios y Contacto"
 ];
 
-/*
-const bannerContents = document.querySelectorAll(".banner-content h1");
-const progressBar = document.querySelector(".progress");
-const progressBarWidth = 100 / texts.length;
-
-function typeText(index) {
-    if (index < texts.length) {
-        bannerContents[index].textContent = "";
-        bannerContents[index].style.display = "block";
-        let text = texts[index];
-        let charIndex = 0;
-        const typeInterval = setInterval(() => {
-            if (charIndex < text.length) {
-                bannerContents[index].textContent += text.charAt(charIndex);
-                charIndex++;
-            } else {
-                clearInterval(typeInterval);
-                updateProgressBar(index + 1);
-            }
-        }, 100);
-    }
-}
-
-function updateProgressBar(index) {
-    progressBar.style.width = `${progressBarWidth * index}%`;
-}
-
-texts.forEach((_, index) => {
-    setTimeout(() => {
-        typeText(index);
-    }, index * 5000);
-});
-*/
-/* ... */
 const bannerContents = document.querySelectorAll(".banner-content h1");
 const progressBar = document.querySelector(".progress");
 

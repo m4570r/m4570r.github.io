@@ -97,7 +97,7 @@ body {
     animation: flicker 1s infinite alternate;
     border: 1px solid #0f0;
     padding-top: 20px;
-	padding-bottom: 20px;
+    padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
     background-color: #000;
 }
@@ -106,7 +106,7 @@ body {
     animation: flicker 1s infinite alternate-reverse;
     border: 1px solid #0f0;
     padding-top: 20px;
-	padding-bottom: 20px;
+    padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
     background-color: #000;
 }
@@ -115,7 +115,7 @@ body {
     animation: flicker 1s infinite alternate;
     border: 1px solid #0f0;
     padding-top: 20px;
-	padding-bottom: 20px;
+    padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
     background-color: #000;
 }
@@ -124,6 +124,7 @@ body {
     0% {
         opacity: 0.5;
     }
+
     100% {
         opacity: 1;
     }
@@ -133,6 +134,7 @@ body {
     0% {
         width: 0;
     }
+
     100% {
         width: 100%;
     }
@@ -143,23 +145,31 @@ body {
     display: none;
     border: 1px solid #0f0;
     padding-top: 20px;
-	padding-bottom: 20px;
+    padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
-    color: #00ff00; /* Cambia el color del texto a verde fluorescente (#00ff00) */
-    overflow: hidden; /* Oculta el texto que no cabe en el contenedor */
+    color: #00ff00;
+    /* Cambia el color del texto a verde fluorescente (#00ff00) */
+    overflow: hidden;
+    /* Oculta el texto que no cabe en el contenedor */
 }
 
 .typewriter {
     display: inline-block;
     overflow: hidden;
-    border-right: 1px solid #00ff00; /* Simula un cursor de escritura */
+    border-right: 1px solid #00ff00;
+    /* Simula un cursor de escritura */
     margin: 0;
     padding: 0;
     width: auto;
 }
 
 /* Otros estilos de secciones */
-.contacto, .formulario, .sobre-mi, .servicios, .clientes, .trabajos {
+.contacto,
+.formulario,
+.sobre-mi,
+.servicios,
+.clientes,
+.trabajos {
     padding: 50px;
 }
 
@@ -238,16 +248,16 @@ footer {
 
 /* Estilos para el menú hamburguesa en dispositivos móviles */
 @media screen and (max-width: 768px) {
-	.black {
-    color: black;
-	}
-	
+    .black {
+        color: black;
+    }
+
     .menu {
         display: none;
     }
 
     .hamburger {
-		display:block;
+        display: block;
         position: fixed;
         background-color: transparent;
         right: 0;
@@ -268,7 +278,8 @@ footer {
     }
 
     .hamburger.is-active {
-        background-color: white;!important
+        background-color: white;
+        !important
     }
 
     ._layer {
@@ -289,7 +300,8 @@ footer {
         -ms-transform: translateY(-100%);
         transform: translateY(-100%);
     }
-	    .hamburger.is-active ._layer {
+
+    .hamburger.is-active ._layer {
         background-color: black;
     }
 
@@ -388,11 +400,13 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    text-decoration: none; /* Elimina el subrayado del enlace */
+    text-decoration: none;
+    /* Elimina el subrayado del enlace */
 }
 
 #download_button:hover {
-    background-color: #218838; /* Cambia el color al pasar el mouse */
+    background-color: #218838;
+    /* Cambia el color al pasar el mouse */
 }
 
 
@@ -423,6 +437,7 @@ button {
     font-size: 16px;
     color: #666;
 }
+
 /* Estilos para la tarjeta de presentación */
 .contact-card {
     background-color: #f9f9f9;
@@ -472,6 +487,7 @@ button {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0.8;
     }
