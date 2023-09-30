@@ -33,3 +33,19 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault(); // Evita que se muestre el menú contextual
 });
+
+// Detectar el evento de teclado
+document.addEventListener('keydown', function (e) {
+    // Verificar si se presionó la tecla "+" junto con la tecla "Ctrl" (o "Cmd" en Mac)
+    if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '=')) {
+        e.preventDefault(); // Evitar que se ejecute la acción de zoom
+    }
+});
+
+// Detectar el evento de teclado
+document.addEventListener('keydown', function (e) {
+    // Verificar si se presionó la tecla "Ctrl" (o "Cmd" en Mac) junto con "+" o "-"
+    if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=')) {
+        e.preventDefault(); // Evitar que se ejecute la acción de zoom
+    }
+});
