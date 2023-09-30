@@ -3,7 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+	overscroll-behavior-y: contain;
+	user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
+
+
 
 /* Estilos del header */
 header {
@@ -34,7 +41,7 @@ nav {
 
 .menu li a {
     text-decoration: none;
-    color: #0f0;
+    color:white;
 }
 
 .menu {
@@ -42,8 +49,9 @@ nav {
     position: absolute;
     top: 1%;
     right: 0;
-    z-index: 1;
+    z-index: 2; /* Aumenta el índice z para que esté sobre el banner */
 }
+
 
 .mobile-menu {
     display: none;
@@ -86,7 +94,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1; /* Asegúrate de que el banner tenga un índice z alto */
 }
+
 
 .banner-content {
     text-align: center;
@@ -99,7 +109,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
-    background-color: #000;
+	background-color: black; /* Agrega el fondo negro */
 }
 
 #banner2 {
@@ -108,7 +118,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
-    background-color: #000;
+    background-color: black; /* Agrega el fondo negro */
 }
 
 #banner3 {
@@ -117,7 +127,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     text-shadow: 0 0 10px #0f0;
-    background-color: #000;
+    background-color: black; /* Agrega el fondo negro */
 }
 
 @keyframes flicker {
@@ -153,6 +163,36 @@ body {
     /* Oculta el texto que no cabe en el contenedor */
 }
 
+.enlace1 {
+    border: 1px solid #0f0;
+    text-shadow: 0 0 10px #0f0;
+    width: 99%;
+    position: absolute;
+    left: 0;
+    height: 190px;
+}
+
+.enlace2 {
+    border: 1px solid #0f0;
+    text-shadow: 0 0 10px #0f0;
+    width: 99%;
+    position: absolute;
+	top:190px;
+    left: 0;
+    height: 190px;
+}
+
+.enlace3 {
+    border: 1px solid #0f0;
+    text-shadow: 0 0 10px #0f0;
+    width: 99%;
+    position: absolute;
+	top:380px;
+    left: 0;
+    height: 190px;
+}
+
+
 .typewriter {
     display: inline-block;
     overflow: hidden;
@@ -174,14 +214,15 @@ body {
 }
 
 /* Estilos del footer */
-footer {
-    color: white;
+.footer {
+    color: #0f0;
     padding-top: 20px;
     padding-bottom: 20px;
-    text-align: center;
+    text-align: left;
     position: absolute;
     bottom: 0;
     width: 100%;
+	z-index:-1;
 }
 
 /* Estilos para el fondo del encabezado y del pie de página */
@@ -249,7 +290,7 @@ footer {
 /* Estilos para el menú hamburguesa en dispositivos móviles */
 @media screen and (max-width: 768px) {
     .black {
-        color: black;
+        color: #00ff00;
     }
 
     .menu {
@@ -278,12 +319,13 @@ footer {
     }
 
     .hamburger.is-active {
-        background-color: white;
-        !important
+        background-color: black;
+		border: 1px solid #0f0;
+		text-shadow: 0 0 10px #0f0;
     }
 
     ._layer {
-        background: black;
+        background: #00ff00;
         margin-bottom: 4px;
         border-radius: 2px;
         width: 28px;
@@ -309,7 +351,7 @@ footer {
     .hamburger.is-active .-top,
     .hamburger.is-active .-mid,
     .hamburger.is-active .-bottom {
-        background-color: black;
+        background-color: #00ff00;
     }
 
     .hamburger:hover .-bottom {
@@ -340,7 +382,8 @@ footer {
 
     .mobile-menu {
         display: block;
-        background-color: rgba(255, 255, 255, 0.95);
+        /*background-color: rgba(255, 255, 255, 0.95);*/
+		background-color:black;
         bottom: 0;
         height: 100%;
         left: 0;
@@ -350,7 +393,7 @@ footer {
         transform: translate3d(0px, -100%, 0px);
         transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
         width: 100%;
-        z-index: 1001;
+        z-index: 2;
     }
 
     .mobile-menu ul {

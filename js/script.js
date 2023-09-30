@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileMenu.style.display = 'none';
         overlay.style.display = 'none';
     });
+	
+
 
     const bannerContents = document.querySelectorAll('.banner-content');
     let currentBannerIndex = 0;
@@ -123,10 +125,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Función para abrir el modal
-    function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.style.display = 'block';
+function openModal(modalId) {
+    // Cierra el menú y oculta el overlay si el menú está abierto
+    if (mobileMenu.classList.contains('is-active')) {
+        hamburger.classList.remove('is-active');
+        mobileMenu.classList.remove('is-active');
+        overlay.style.display = 'none';
     }
+
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+}
 
     // Función para cerrar el modal
     function closeModal(modalId) {

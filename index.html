@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="./css/effecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
@@ -40,9 +41,9 @@
         </div>
 		<div>
         <ul>
-            <li><a href="#" class="modal-trigger black" data-modal-id="curriculum-modal">C.V.</a></li>
-            <li><a href="#" class="modal-trigger black" data-modal-id="servicios-modal">Servicios</a></li>
-            <li><a href="#" class="modal-trigger black" data-modal-id="contactame-modal">Contacto</a></li>
+            <li><a href="#" class="modal-trigger black enlace1" data-modal-id="curriculum-modal">C.V.</a></li>
+            <li><a href="#" class="modal-trigger black enlace2" data-modal-id="servicios-modal">Servicios</a></li>
+            <li><a href="#" class="modal-trigger black enlace3" data-modal-id="contactame-modal">Contacto</a></li>
         </ul>
 		</div>
         <div class="overlay"></div>
@@ -93,7 +94,10 @@
         <!-- Trabajos realizados -->
     </section>
     
-    
+    <section class="footer">
+		    <div class="terminal" style="position:absolute;bottom:1px;">
+        <pre id="output" ></pre>
+		</section
     <!-- Modales -->
 <div class="modal" id="curriculum-modal">
     <div class="modal-content">
@@ -156,8 +160,7 @@
     </div>
 </div>
 
-	    <div class="terminal" style="position:absolute;bottom:1px;">
-        <pre id="output" ></pre>
+
     </div>
 	
 	<script>
