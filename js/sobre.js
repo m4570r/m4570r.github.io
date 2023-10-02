@@ -11,13 +11,17 @@ function startCountdownAndRestartTerminal() {
   if (countdownSeconds3 < 0) {
     clearInterval(countdownInterval3);
     countdownElement3.style.display = 'none'; // Ocultar el elemento de la cuenta regresiva
-    restartSecondTerminal();
-    countdownSeconds3 = 80; // Reiniciar el contador a 80 segundos
-    startCountdownAndRestartTerminal(); // Iniciar la cuenta regresiva nuevamente
+    restartAndScheduleRestart(); // Reiniciar y programar el siguiente reinicio
   }
 }
 
-const countdownInterval3 = setInterval(startCountdownAndRestartTerminal, 1000); // Actualiza la cuenta regresiva cada segundo
+let countdownInterval3 = setInterval(startCountdownAndRestartTerminal, 1000); // Actualiza la cuenta regresiva cada segundo
+
+function restartAndScheduleRestart() {
+  restartSecondTerminal();
+  countdownSeconds3 = 80; // Reiniciar el contador a 80 segundos
+  countdownInterval3 = setInterval(startCountdownAndRestartTerminal, 1000); // Programar el siguiente reinicio
+}
 
 function restartSecondTerminal() {
   // Reinicia la segunda terminal
@@ -39,7 +43,10 @@ function restartSecondTerminal() {
   terminal3.appendChild(titleBar3); // Vuelve a mostrar el título
   terminal3.appendChild(controls3); // Vuelve a mostrar los botones
 
-  startSecondTerminalCode(); // Inicia el código de la segunda terminal nuevamente
+  // Vuelve a iniciar el código de la segunda terminal después de 5 segundos
+  setTimeout(() => {
+    startSecondTerminalCode();
+  }, 5000);
 }
 
 function startSecondTerminalCode() {
