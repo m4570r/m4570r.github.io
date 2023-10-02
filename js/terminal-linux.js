@@ -98,5 +98,3 @@ function restartProcess() {
     executeCommands();
   }, 5000);
 }
-
-
