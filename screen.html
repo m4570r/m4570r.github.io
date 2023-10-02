@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black; /* Fondo negro */
+            z-index: 9999; /* Coloca la capa encima de todo */
+            opacity: 0; /* Hacer invisible */
+            pointer-events: none; /* Evitar eventos de puntero en la capa */
+        }
+    </style>
+    <title>Mi Sitio Web Protegido</title>
+</head>
+<body>
+    <h1>Bienvenido a mi sitio web protegido</h1>
+    <p>Aquí hay un contenido importante que no debe ser capturado.</p>
+</body>
+</html>
