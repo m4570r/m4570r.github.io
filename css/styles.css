@@ -3,11 +3,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-	/*overscroll-behavior-y: contain;
+	overscroll-behavior-y: contain;
 	user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;*/
+    -ms-user-select: none;
 }
 
 .estilo1 {
@@ -274,7 +274,7 @@ body {
 }
 
 .modal-content {
-    background-color: white;
+    /*background-color: white;*/
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -470,14 +470,19 @@ button {
 
 /* Estilos para las tarjetas de servicio */
 .service-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    /*background-color: #f9f9f9;*/
+    /*border: 1px solid #ddd;*/
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
+	color:#0f0;	
+	border: 1px solid #0f0;
+    text-shadow: 0 0 10px #0f0;
+	background-color: black; /* Agrega el fondo negro */
+	
 }
 
 .service-card:hover {
@@ -488,18 +493,22 @@ button {
 .service-card h3 {
     font-size: 24px;
     margin: 10px 0;
-    color: #333;
+    /*color: #333;*/
 }
 
 .service-card p {
     font-size: 16px;
-    color: #666;
+   /* color: #666;*/
 }
 
 /* Estilos para la tarjeta de presentación */
 .contact-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    /*background-color: #f9f9f9;
+    border: 1px solid #ddd;*/
+	color:#0f0;	
+	border: 1px solid #0f0;
+    text-shadow: 0 0 10px #0f0;
+	background-color: black; /* Agrega el fondo negro */
     border-radius: 5px;
     padding: 20px;
     text-align: center;
@@ -508,12 +517,12 @@ button {
 .contact-card h2 {
     font-size: 24px;
     margin: 10px 0;
-    color: #333;
+	color:#0f0;
 }
 
 .contact-card p {
     font-size: 16px;
-    color: #666;
+	color:#0f0;
     margin: 5px 0;
 }
 
