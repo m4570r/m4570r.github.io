@@ -78,14 +78,9 @@ function showLoadingMessage() {
   return loadingElement;
 }
 
-// Función para reiniciar el proceso
 function restartProcess() {
-  // Limpia el contenido de la terminal
+  // Limpia el contenido de la terminal, incluyendo las respuestas anteriores
   terminal.innerHTML = '';
-
-  // Vuelve a mostrar el título y los botones de la terminal
-  terminal.appendChild(titleBar);
-  terminal.appendChild(controls);
 
   // Vuelve a mostrar el mensaje de carga (solo una vez)
   const loadingElement = showLoadingMessage();
@@ -94,7 +89,14 @@ function restartProcess() {
   // Espera 5 segundos adicionales antes de eliminar el mensaje de carga
   setTimeout(() => {
     loadingElement.remove();
-    // Luego de mostrar el mensaje de carga, ejecuta los comandos (solo una vez)
+
+    // Vuelve a agregar la barra de título y los botones
+    terminal.appendChild(titleBar);
+    terminal.appendChild(controls);
+
+    // Luego de mostrar la barra de título y los botones, ejecuta los comandos (solo una vez)
     executeCommands();
   }, 5000);
 }
+
+
