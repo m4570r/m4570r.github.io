@@ -3,14 +3,16 @@ const terminal = document.querySelector('.terminal-linux');
 
 // Define un arreglo de comandos y respuestas
 const commandsAndResponses = [
-  { command: 'PHP', response: '' },
-  { command: 'SQL', response: '' },
-  { command: 'HTML', response: '' },
-  { command: 'CSS', response: '' },
-  { command: 'Javascript', response: '' },
-  { command: 'Python', response: '' },
-  { command: 'C#', response: '' },
+  { command: 'PHP', response: 'PHP es un lenguaje de programación popular para desarrollo web.' },
+  { command: 'SQL', response: 'SQL es un lenguaje para gestionar bases de datos relacionales.' },
+  { command: 'HTML', response: 'HTML es el lenguaje de marcado utilizado para crear páginas web.' },
+  { command: 'CSS', response: 'CSS es un lenguaje de estilo que se utiliza para diseñar páginas web.' },
+  { command: 'Javascript', response: 'Javascript es un lenguaje de programación ampliamente utilizado en el desarrollo web.' },
 ];
+
+// Mantén una referencia al título y los botones
+const titleBar = terminal.querySelector('.terminal-title');
+const controls = terminal.querySelector('.terminal-controls');
 
 // Función para simular la escritura de un comando o respuesta con efecto de escritura
 async function typeText(text, isInput) {
@@ -37,26 +39,62 @@ async function executeCommands() {
       await typeText(response, false);
       // Espera 1 segundo después de mostrar la respuesta antes de eliminarla
       await sleep(1000);
-      // Elimina la respuesta
-      terminal.lastChild.remove();
+      // Elimina la respuesta (terminal-output)
+      const outputElements = terminal.querySelectorAll('.terminal-output');
+      outputElements[outputElements.length - 1].remove();
     }
   }
 }
 
-// Ejecuta los comandos cuando la página esté completamente cargada
-document.addEventListener('DOMContentLoaded', () => {
-  // Ejecuta los comandos iniciales
-  executeCommands();
+// Verifica si el mensaje de carga ya se mostró
+let loadingMessageShown = false;
 
-  // Resetear la simulación después de un minuto eliminando solo los elementos .terminal-output
-  setInterval(() => {
-    // Selecciona y elimina solo los elementos .terminal-output
-    const outputElements = terminal.querySelectorAll('.terminal-output');
-    outputElements.forEach((element) => {
-      element.remove();
-    });
+// Espera 5 segundos antes de mostrar el mensaje de carga (solo una vez)
+setTimeout(() => {
+  if (!loadingMessageShown) {
+    const loadingElement = showLoadingMessage();
+    loadingMessageShown = true;
 
-    // Vuelve a mostrar los comandos iniciales con efecto de escritura
+    // Espera 5 segundos adicionales antes de eliminar el mensaje de carga
+    setTimeout(() => {
+      loadingElement.remove();
+      // Luego de mostrar el mensaje de carga, ejecuta los comandos (solo una vez)
+      executeCommands();
+
+      // Reiniciar el proceso después de 60 segundos
+      setInterval(() => {
+        restartProcess();
+      }, 60000); // Cada 60 segundos
+    }, 5000);
+  }
+}, 5000);
+
+// Muestra un mensaje de carga antes de ejecutar los comandos
+function showLoadingMessage() {
+  const loadingElement = document.createElement('div');
+  loadingElement.className = 'terminal-output';
+  loadingElement.textContent = 'Cargando lenguajes...';
+  terminal.appendChild(loadingElement);
+  return loadingElement;
+}
+
+// Función para reiniciar el proceso
+function restartProcess() {
+  // Limpia el contenido de la terminal
+  terminal.innerHTML = '';
+
+  // Vuelve a mostrar el título y los botones de la terminal
+  terminal.appendChild(titleBar);
+  terminal.appendChild(controls);
+
+  // Vuelve a mostrar el mensaje de carga (solo una vez)
+  const loadingElement = showLoadingMessage();
+  loadingMessageShown = true;
+
+  // Espera 5 segundos adicionales antes de eliminar el mensaje de carga
+  setTimeout(() => {
+    loadingElement.remove();
+    // Luego de mostrar el mensaje de carga, ejecuta los comandos (solo una vez)
     executeCommands();
-  }, 60000); // Cada 1 minuto (60000 milisegundos)
-});
+  }, 5000);
+}
