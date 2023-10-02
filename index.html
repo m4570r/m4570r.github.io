@@ -2,10 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
     <link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="./css/effecto.css">
+	<link rel="stylesheet" href="./css/terminal-linux.css">
+	<link rel="stylesheet" href="./css/barra-progreso.css">
+	<link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     <title>Miguel Ángel González | m4570r</title>
@@ -30,6 +33,7 @@
             <li><a href="#" class="modal-trigger" data-modal-id="curriculum-modal">C.V.</a></li>
             <li><a href="#" class="modal-trigger" data-modal-id="servicios-modal">Servicios</a></li>
             <li><a href="#" class="modal-trigger" data-modal-id="contactame-modal">Contacto</a></li>
+			<li><a href="#" class="modal-trigger" data-modal-id="game-modal">| Juego</a></li>
         </ul>
     </div>
     <!-- Menú de hamburguesa -->
@@ -44,6 +48,7 @@
             <li><a href="#" class="modal-trigger black enlace1" data-modal-id="curriculum-modal">C.V.</a></li>
             <li><a href="#" class="modal-trigger black enlace2" data-modal-id="servicios-modal">Servicios</a></li>
             <li><a href="#" class="modal-trigger black enlace3" data-modal-id="contactame-modal">Contacto</a></li>
+			<li><a href="#" class="modal-trigger black enlace4" data-modal-id="game-modal">Juego</a></li>
         </ul>
 		</div>
         <div class="overlay"></div>
@@ -71,33 +76,97 @@
 
     
     <section class="contacto">
-        <!-- Cuadro estilizado con datos de contacto -->
+
+		<div class="terminal-linux terminal-output">
+		  <div class="terminal-title">
+			Lenguajes - DEV
+			<div class="terminal-controls">
+			  <!--<button class="control-button minimize">-</button>-->
+			  <!--<button class="control-button maximize">□</button>-->
+			  <button class="control-button close">X</button>
+			  </div>
+		  </div>
+		    <div class="terminal-output">Lenguajes de Programacion.</div>
+
+		  <!-- Resto de tu contenido de terminal aquí -->
+		</div>
+
+
     </section>
     
     <section class="formulario">
-        <!-- Formulario de contacto -->
+	
+	
+<div class="terminal-linux2 terminal-output2">
+  <div class="terminal-title2">
+    Aprendiendo
+    <div class="terminal-controls2">
+      <!--<button class="control-button2 minimize2">-</button>-->
+      <!--<button class="control-button2 maximize2">□</button>-->
+      <button class="control-button2 close2">X</button>
+    </div>
+  </div>
+  <div class="contenedor-barra-carga">
+    <div class="barra-carga" id="barra-progreso"></div>
+
+  <div class="texto-porcentaje" id="texto-porcentaje">100%</div>
+  
+    </div>
+  <!-- Resto de tu contenido de terminal aquí -->
+</div>
+
+	
     </section>
     
     <section class="sobre-mi">
         <!-- Información sobre mí -->
+			<div class="terminal-linux3 terminal-output3">
+		  <div class="terminal-title3">
+			Frameworks
+			<div class="terminal-controls3">
+			  <!--<button class="control-button3 minimize3">-</button>-->
+			  <!--<button class="control-button3 maximize3">□</button>-->
+			  <button class="control-button3 close3">X</button>
+			  </div>
+
+		  </div>
+
+
+		  <!-- Resto de tu contenido de terminal aquí -->
+		</div>
     </section>
     
     <section class="servicios">
-        <!-- Presentación de servicios -->
+        <!-- Presentación de servicios 
+		<p>servicios</p>-->
     </section>
     
     <section class="clientes">
-        <!-- Sección de clientes -->
+        <!-- Sección de clientes 
+		<p>clientes</p>-->
     </section>
     
     <section class="trabajos">
-        <!-- Trabajos realizados -->
+        <!-- Trabajos realizados 
+		<p>trabajos</p>-->
+    </section>
+	
+	    <section class="otras-cosas1">
+        <!-- Sección de clientes 
+		<p>otras cosas</p>-->
+    </section>
+    
+    <section class="otras cosas 2">
+        <!-- Trabajos realizados 
+		<p>otras cosas 2</p>-->
     </section>
     
     <section class="footer">
-		    <div class="terminal" style="position:absolute;bottom:1px;">
+	    <div class="terminal" style="position:absolute;bottom:1px;">
         <pre id="output" ></pre>
-		</section
+	</section>
+		
+		
     <!-- Modales -->
 <div class="modal" id="curriculum-modal">
     <div class="modal-content">
@@ -123,6 +192,14 @@
 </div>
 
 
+<div class="modal" id="game-modal">
+    <div class="modal-content">
+        <!-- Contenido del modal para el Curriculum Vitae -->
+        <p>Mensaje o información sobre el Juego.</p>
+
+
+    </div>
+</div>
 
 
 <div class="modal" id="servicios-modal">
@@ -163,73 +240,11 @@
 
     </div>
 	
-	<script>
-    var myState = {
-        pdf: null,
-        currentPage: 1,
-        zoom: 0.5
-    }
-
-    pdfjsLib.getDocument('cv.pdf').then((pdf) => {
-        myState.pdf = pdf;
-        render();
-    });
-
-    function render() {
-        myState.pdf.getPage(myState.currentPage).then((page) => {
-            var canvas = document.getElementById("pdf_renderer");
-            var ctx = canvas.getContext('2d');
-            var viewport = page.getViewport(myState.zoom);
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            page.render({
-                canvasContext: ctx,
-                viewport: viewport
-            });
-        });
-    }
-
-    document.getElementById('go_previous').addEventListener('click', (e) => {
-        if (myState.pdf == null || myState.currentPage == 1) return;
-        myState.currentPage -= 1;
-        document.getElementById("current_page").value = myState.currentPage;
-        render();
-    });
-
-    document.getElementById('go_next').addEventListener('click', (e) => {
-        if (myState.pdf == null || myState.currentPage >= myState.pdf.numPages) return;
-        myState.currentPage += 1;
-        document.getElementById("current_page").value = myState.currentPage;
-        render();
-    });
-
-    document.getElementById('current_page').addEventListener('keypress', (e) => {
-        if (myState.pdf == null) return;
-        var code = (e.keyCode ? e.keyCode : e.which);
-        if (code == 13) {
-            var desiredPage = document.getElementById('current_page').valueAsNumber;
-            if (desiredPage >= 1 && desiredPage <= myState.pdf.numPages) {
-                myState.currentPage = desiredPage;
-                document.getElementById("current_page").value = desiredPage;
-                render();
-            }
-        }
-    });
-
-    document.getElementById('zoom_in').addEventListener('click', (e) => {
-        if (myState.pdf == null) return;
-        myState.zoom += 0.5;
-        render();
-    });
-
-    document.getElementById('zoom_out').addEventListener('click', (e) => {
-        if (myState.pdf == null) return;
-        myState.zoom -= 0.5;
-        render();
-    });
-</script>
 
     <script src="./js/script.js" defer></script>
+	<script src="./js/script2.js" defer></script>
 	<script src="./js/effecto.js" defer></script>
+	<script src="./js/terminal-linux.js" defer></script>
+	<script src="./js/barra-progreso.js" defer></script>
 </body>
 </html>

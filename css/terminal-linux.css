@@ -1,0 +1,81 @@
+/* Estilos generales para la terminal */
+.terminal-linux {
+	margin-left:20%;
+    margin-top: 12%;
+    width: 70vw;
+    height: 45vh;
+  /*background-color: rgba(0, 0, 0, 0.7); /* Fondo semi transparente negro */
+  font-family: monospace; /* Fuente de estilo de terminal */
+  font-size: 14px;
+  overflow: auto; /* Agregar barra de desplazamiento si el contenido excede el tamaño */
+  border: 1px solid #ccc;
+  padding: 0; /* Elimina el relleno interior para la barra de título */
+  z-index: -1;
+  background-color:black !important;
+}
+
+/* Estilos para la barra de título de la terminal */
+.terminal-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0; /* Elimina el margen interior del título */
+  color: white !important; /* Agrega !important para forzar el color blanco */
+}
+
+
+/* Estilos para los botones de control */
+.terminal-controls {
+	margin-top: -19px;
+	text-align:right;
+    background-color: gray;
+    gap: 5px;
+}
+
+/* Estilos para los botones de control */
+.control-button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Estilos para los botones de control */
+.control-button.minimize {
+  background-color: transparent;
+}
+
+/* Estilos para los botones de control */
+.control-button.maximize {
+  background-color: transparent;
+}
+
+/* Estilos para los botones de control */
+.control-button.close {
+  background-color: transparent;
+}
+
+/* Estilos para el texto de entrada y salida */
+.terminal-input {
+  color: white;
+}
+
+.terminal-output {
+  color: white;
+}
+
+/* Estilos para el cursor */
+.terminal-cursor {
+  animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
