@@ -80,7 +80,12 @@ function showLoadingMessage() {
 
 function restartProcess() {
   // Limpia el contenido de la terminal, incluyendo las respuestas anteriores
-  terminal.innerHTML = '';
+  //terminal.innerHTML = '';
+
+  const outputElements = terminal.querySelectorAll('.terminal-output');
+  outputElements.forEach(element => {
+    element.remove();
+  });
 
   // Vuelve a mostrar el mensaje de carga (solo una vez)
   const loadingElement = showLoadingMessage();
