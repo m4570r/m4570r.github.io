@@ -90,6 +90,22 @@ function restartProcess() {
   setTimeout(() => {
     loadingElement.remove();
 
+    const terminal = document.querySelector('.terminal-linux3');
+  terminal.innerHTML = ''; // Elimina todos los elementos de la terminal 3
+
+  // Vuelve a cargar la barra de título y los botones
+  const titleBar = document.createElement('div');
+  titleBar.className = 'terminal-title3';
+  titleBar.textContent = 'Lenguajes';
+
+  const controls = document.createElement('div');
+  controls.className = 'terminal-controls';
+  const closeButton = document.createElement('button');
+  closeButton.className = 'control-button3 close3';
+  closeButton.textContent = 'X';
+  controls.appendChild(closeButton);
+
+   
     // Vuelve a agregar la barra de título y los botones
     terminal.appendChild(titleBar);
     terminal.appendChild(controls);
