@@ -90,7 +90,7 @@ function restartProcess() {
   setTimeout(() => {
     loadingElement.remove();
 
-    const terminal = document.querySelector('.terminal-linux3');
+    const terminal = document.querySelector('.terminal-linux');
   terminal.innerHTML = ''; // Elimina todos los elementos de la terminal 3
 
   // Vuelve a cargar la barra de título y los botones
