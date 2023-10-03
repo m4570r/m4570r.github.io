@@ -40,3 +40,9 @@ document.addEventListener('keyup', function(event) {
   }
 });
 
+// Capturamos el evento de rueda del mouse en el documento
+document.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) {
+        e.preventDefault(); // Evita el comportamiento predeterminado del zoom
+    }
+});
