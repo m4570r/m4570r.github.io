@@ -1,0 +1,8 @@
+.fa-zhihu {
+    font-size: 4px;
+    position: fixed;
+    color: #00FF00; /* Color verde fluorescente */
+    opacity: 0.7; /* Opacidad para un efecto de rastro */
+	z-index:-5;
+}
+

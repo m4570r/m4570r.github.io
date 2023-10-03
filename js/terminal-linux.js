@@ -100,7 +100,7 @@ function restartProcess() {
 
   // Vuelve a cargar la barra de título y los botones
   const titleBar = document.createElement('div');
-  titleBar.className = 'terminal-title3';
+  titleBar.className = 'terminal-title';
   titleBar.textContent = 'Lenguajes';
 
   const controls = document.createElement('div');

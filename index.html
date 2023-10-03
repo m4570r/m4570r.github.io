@@ -6,249 +6,216 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="./css/effecto.css">
+	<link rel="stylesheet" href="./css/effects.css">
+	<link rel="stylesheet" href="./css/matrix2.css">
 	<link rel="stylesheet" href="./css/terminal-linux.css">
 	<link rel="stylesheet" href="./css/barra-progreso.css">
 	<link rel="stylesheet" href="./css/sobre.css">
+	<link rel="stylesheet" href="./css/rain-container.css">
+	<link rel="stylesheet" href="./css/bug-container.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
     <title>Miguel Ángel González | m4570r</title>
 </head>
 <body>
 
     <header>
-
-
-    <div class="logo">
-        <div id="logo-text"><span id="cursor"></span></div>
-    </div>
+        <div class="logo">
+            <div id="logo-text"><span id="cursor"></span></div>
+        </div>
         <div class="hamburger">
             <div class="_layer -top"></div>
             <div class="_layer -mid"></div>
             <div class="_layer -bottom"></div>
         </div>
-		<nav>
-
-    <div class="menu">
-        <ul>
-            <li><a href="#" class="modal-trigger" data-modal-id="curriculum-modal">C.V.</a></li>
-            <li><a href="#" class="modal-trigger" data-modal-id="servicios-modal">Servicios</a></li>
-            <li><a href="#" class="modal-trigger" data-modal-id="contactame-modal">Contacto</a></li>
-			<li><a href="#" class="modal-trigger" data-modal-id="game-modal">| Juego</a></li>
-        </ul>
-    </div>
-    <!-- Menú de hamburguesa -->
-    <div class="mobile-menu">
-        <div class="hamburger">
-            <div class="hamburger-icon">
-                <i class="fas fa-bars"></i> <!-- Icono de menú hamburguesa -->
+        <nav>
+            <div class="menu">
+                <ul>
+                    <li><a href="#" class="modal-trigger" data-modal-id="curriculum-modal">C.V.</a></li>
+                    <li><a href="#" class="modal-trigger" data-modal-id="servicios-modal">Servicios</a></li>
+                    <li><a href="#" class="modal-trigger" data-modal-id="contactame-modal">Contacto</a></li>
+                    <li><a href="#" class="modal-trigger" data-modal-id="game-modal">| Juego</a></li>
+                </ul>
+            </div>
+            <!-- Menú de hamburguesa -->
+            <div class="mobile-menu">
+                <div class="hamburger">
+                    <div class="hamburger-icon">
+                        <i class="fas fa-bars"></i> <!-- Icono de menú hamburguesa -->
+                    </div>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="#" class="modal-trigger black enlace1" data-modal-id="curriculum-modal">C.V.</a></li>
+                        <li><a href="#" class="modal-trigger black enlace2" data-modal-id="servicios-modal">Servicios</a></li>
+                        <li><a href="#" class="modal-trigger black enlace3" data-modal-id="contactame-modal">Contacto</a></li>
+                        <li><a href="#" class="modal-trigger black enlace4" data-modal-id="game-modal">Juego</a></li>
+                    </ul>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </nav>
+        <div class="banner">
+            <div class="banner-content" style="background-color:black;z-index:1000;">
+                <h1>Bienvenido a mi página web</h1>
+            </div>
+            <div class="banner-content" style="background-color:black;z-index:1000;">
+                <h1>Mi nombre es Miguel González</h1>
+            </div>
+            <div class="banner-content" style="background-color:black;z-index:1000;">
+                <h1>Soy Programador WEB</h1>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
             </div>
         </div>
-		<div>
-        <ul>
-            <li><a href="#" class="modal-trigger black enlace1" data-modal-id="curriculum-modal">C.V.</a></li>
-            <li><a href="#" class="modal-trigger black enlace2" data-modal-id="servicios-modal">Servicios</a></li>
-            <li><a href="#" class="modal-trigger black enlace3" data-modal-id="contactame-modal">Contacto</a></li>
-			<li><a href="#" class="modal-trigger black enlace4" data-modal-id="game-modal">Juego</a></li>
-        </ul>
-		</div>
-        <div class="overlay"></div>
-    </div>
-</nav>
 
-	<div class="banner">
-    <div class="banner-content" style="background-color:black;z-index:1000;">
-        <h1>Bienvenido a mi página web</h1>
-    </div>
-    <div class="banner-content" style="background-color:black;z-index:1000;">
-        <h1>Mi nombre es Miguel González</h1>
-    </div>
-    <div class="banner-content" style="background-color:black;z-index:1000;">
-        <h1>Soy Programador WEB</h1>
-    </div>
-    <div class="progress-bar">
-        <div class="progress"></div>
-    </div>
-</div>
-		
+		<div id="rain-container"></div>
+		<div id="bug-container"></div>
+		<div class="grid-container" id="grid-container"></div>
+        <div class="matrix-container"></div>
         <div class="matrix-effect" id="matrix-header"></div>
     </header>
-	
-
-    
     <section class="contacto">
-
-		<div class="terminal-linux terminal-output">
-		  <div class="terminal-title">
-			Lenguajes - DEV
-			<div class="terminal-controls">
-			  <!--<button class="control-button minimize">-</button>-->
-			  <!--<button class="control-button maximize">□</button>-->
-			  <button class="control-button close">X</button>
-			  </div>
-		  </div>
-      <div id="countdown"></div>
-		  <!-- Resto de tu contenido de terminal aquí -->
-		</div>
-
-
+        <div class="terminal-linux terminal-output">
+            <div class="terminal-title">
+                Lenguajes - DEV
+                <div class="terminal-controls">
+                    <!--<button class="control-button minimize">-</button>-->
+                    <!--<button class="control-button maximize">□</button>-->
+                    <button class="control-button close">X</button>
+                </div>
+            </div>
+            <div id="countdown"></div>
+            <!-- Resto de tu contenido de terminal aquí -->
+        </div>
     </section>
-    
     <section class="formulario">
-	
-	
-<div class="terminal-linux2 terminal-output2">
-  <div class="terminal-title2">
-    Aprendiendo
-    <div class="terminal-controls2">
-      <!--<button class="control-button2 minimize2">-</button>-->
-      <!--<button class="control-button2 maximize2">□</button>-->
-      <button class="control-button2 close2">X</button>
-    </div>
-  </div>
-  <div class="contenedor-barra-carga">
-    <div class="barra-carga" id="barra-progreso"></div>
-
-  <div class="texto-porcentaje" id="texto-porcentaje">100%</div>
-  
-    </div>
-  <!-- Resto de tu contenido de terminal aquí -->
-</div>
-
-	
+        <div class="terminal-linux2 terminal-output2">
+            <div class="terminal-title2">
+                Aprendiendo
+                <div class="terminal-controls2">
+                    <!--<button class="control-button2 minimize2">-</button>-->
+                    <!--<button class="control-button2 maximize2">□</button>-->
+                    <button class="control-button2 close2">X</button>
+                </div>
+            </div>
+            <div class="contenedor-barra-carga">
+                <div class="barra-carga" id="barra-progreso"></div>
+                <div class="texto-porcentaje" id="texto-porcentaje">100%</div>
+            </div>
+            <!-- Resto de tu contenido de terminal aquí -->
+        </div>
     </section>
-    
-<section class="sobre-mi">
-  <!-- Información sobre mí -->
-  <div class="terminal-linux3 terminal-output3">
-    <div class="terminal-title3">
-      Frameworks
-      <div class="terminal-controls3">
-        <!--<button class="control-button3 minimize3">-</button>-->
-        <!--<button class="control-button3 maximize3">□</button>-->
-        <button class="control-button3 close3">X</button>
-      </div>
-      <!-- Agrega este elemento HTML en tu documento HTML -->
-      <div id="countdown3"></div>
-    </div>
-    <!-- Resto de tu contenido de terminal aquí -->
-  </div>
-</section>
-
-    
+    <section class="sobre-mi">
+        <!-- Información sobre mí -->
+        <div class="terminal-linux3 terminal-output3">
+            <div class="terminal-title3">
+                Frameworks
+                <div class="terminal-controls3">
+                    <!--<button class="control-button3 minimize3">-</button>-->
+                    <!--<button class="control-button3 maximize3">□</button>-->
+                    <button class="control-button3 close3">X</button>
+                </div>
+                <!-- Agrega este elemento HTML en tu documento HTML -->
+                <div id="countdown3"></div>
+            </div>
+            <!-- Resto de tu contenido de terminal aquí -->
+        </div>
+    </section>
     <section class="servicios">
         <!-- Presentación de servicios 
 		<p>servicios</p>-->
     </section>
-    
     <section class="clientes">
         <!-- Sección de clientes 
 		<p>clientes</p>-->
     </section>
-    
     <section class="trabajos">
         <!-- Trabajos realizados 
 		<p>trabajos</p>-->
     </section>
-	
-	    <section class="otras-cosas1">
+    <section class="otras-cosas1">
         <!-- Sección de clientes 
 		<p>otras cosas</p>-->
     </section>
-    
     <section class="otras cosas 2">
         <!-- Trabajos realizados 
 		<p>otras cosas 2</p>-->
     </section>
-    
     <section class="footer">
-	    <div class="terminal" style="position:absolute;bottom:1px;">
-        <pre id="output" ></pre>
-	</section>
-		
-		
+        <div class="terminal" style="position:absolute;bottom:1px;">
+            <pre id="output"></pre>
+        </div>
+    </section>
     <!-- Modales -->
-<div class="modal" id="curriculum-modal">
-    <div class="modal-content">
-        <!-- Contenido del modal para el Curriculum Vitae 
-        <p>Mensaje o información sobre el Curriculum Vitae.</p>-->
-		<div id="navigation_controls">
-    <button id="go_previous"><</button>
-    <input id="current_page" value="1" type="number" style="width: 20px;text-align: center;" />
-    <button id="go_next">></button>
-
-
-    <a id="download_button" href="cv.pdf" download>Descargar</a>
-
-
-    <button id="zoom_in">+</button>
-    <button id="zoom_out">-</button>
-</div>
-        <div id="canvas_container">
-            <canvas id="pdf_renderer"></canvas>
-        </div>
-
-    </div>
-</div>
-
-
-<div class="modal" id="game-modal">
-    <div class="modal-content">
-        <!-- Contenido del modal para el Curriculum Vitae -->
-        <p>Mensaje o información sobre el Juego.</p>
-
-
-    </div>
-</div>
-
-
-<div class="modal" id="servicios-modal">
-    <div class="modal-content">
-        <div class="service-card" id="service1">
-            <h3>Desarrollo de Software</h3>
-            <p>Ofrecemos servicios de desarrollo de software a medida para satisfacer tus necesidades.</p>
-        </div>
-        <div class="service-card" id="service2">
-            <h3>Desarrollo Web</h3>
-            <p>Creación de sitios web modernos y funcionales, adaptados a tus requerimientos.</p>
-        </div>
-        <div class="service-card" id="service3">
-            <h3>Desarrollo de Aplicaciones</h3>
-            <p>Desarrollamos aplicaciones móviles y de escritorio para diversas plataformas.</p>
-        </div>
-        <div class="service-card" id="service4">
-            <h3>Soporte</h3>
-            <p>Brindamos soporte técnico y mantenimiento para tus sistemas y aplicaciones.</p>
+    <div class="modal" id="curriculum-modal">
+        <div class="modal-content">
+            <!-- Contenido del modal para el Curriculum Vitae 
+            <p>Mensaje o información sobre el Curriculum Vitae.</p>-->
+            <div id="navigation_controls">
+                <button id="go_previous"><</button>
+                <input id="current_page" value="1" type="number" style="width: 20px;text-align: center;" />
+                <button id="go_next">></button>
+                <a id="download_button" href="cv.pdf" download>Descargar</a>
+                <button id="zoom_in">+</button>
+                <button id="zoom_out">-</button>
+            </div>
+            <div id="canvas_container">
+                <canvas id="pdf_renderer"></canvas>
+            </div>
         </div>
     </div>
-</div>
-
-
-<div class="modal" id="contactame-modal">
-    <div class="modal-content">
-        <!-- Contenido del modal para Contacto -->
-        <div class="contact-card">
-            <h2>Miguel Ángel González</h2>
-            <p>Desarrollador</p>
-            <p>Teléfono: +56922265898</p>
-            <p>Email: mgonzalez.gnu@gmail.com</p>
-            <p>Dirección: Ramon Sanfurgo Santa Cruz</p>
+    <div class="modal" id="game-modal">
+        <div class="modal-content">
+            <!-- Contenido del modal para el Curriculum Vitae -->
+            <p>Mensaje o información sobre el Juego.</p>
         </div>
     </div>
-</div>
-
-
+    <div class="modal" id="servicios-modal">
+        <div class="modal-content">
+            <div class="service-card" id="service1">
+                <h3>Desarrollo de Software</h3>
+                <p>Ofrecemos servicios de desarrollo de software a medida para satisfacer tus necesidades.</p>
+            </div>
+            <div class="service-card" id="service2">
+                <h3>Desarrollo Web</h3>
+                <p>Creación de sitios web modernos y funcionales, adaptados a tus requerimientos.</p>
+            </div>
+            <div class="service-card" id="service3">
+                <h3>Desarrollo de Aplicaciones</h3>
+                <p>Desarrollamos aplicaciones móviles y de escritorio para diversas plataformas.</p>
+            </div>
+            <div class="service-card" id="service4">
+                <h3>Soporte</h3>
+                <p>Brindamos soporte técnico y mantenimiento para tus sistemas y aplicaciones.</p>
+            </div>
+        </div>
     </div>
-	
-  <!-- Capa de advertencia -->
-  <div id="screenshot-warning">
-    <p>No se permiten capturas de pantalla en este sitio.</p>
-  </div>
+    <div class="modal" id="contactame-modal">
+        <div class="modal-content">
+            <!-- Contenido del modal para Contacto -->
+            <div class="contact-card">
+                <h2>Miguel Ángel González</h2>
+                <p>Desarrollador</p>
+                <p>Teléfono: +56922265898</p>
+                <p>Email: mgonzalez.gnu@gmail.com</p>
+                <p>Dirección: Ramon Sanfurgo Santa Cruz</p>
+            </div>
+        </div>
+    </div>
     <script src="./js/script.js" defer></script>
-	<script src="./js/script2.js" defer></script>
-	<script src="./js/sobre.js" defer></script>
-	<script src="./js/effecto.js" defer></script>
-	<script src="./js/terminal-linux.js" defer></script>
-	<script src="./js/barra-progreso.js" defer></script>
-	<script src="./js/bloqueo.js" defer></script>
+    <script src="./js/rain-container.js" defer></script>
+	<script src="./js/bug-container.js" defer></script>
+    <script src="./js/script2.js" defer></script>
+    <script src="./js/sobre.js" defer></script>
+    <script src="./js/effecto.js" defer></script>
+	<script src="./js/effects.js" defer></script>
+    <script src="./js/matrix2.js" defer></script>
+    <script src="./js/terminal-linux.js" defer></script>
+    <script src="./js/barra-progreso.js" defer></script>
+    <script src="./js/bloqueo.js" defer></script>
 </body>
 </html>

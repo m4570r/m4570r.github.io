@@ -1,149 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
-        /* Estilos para el menú de hamburguesa */
         body {
             margin: 0;
-            padding: 0;
+            overflow: hidden;
+            background-color: black;
         }
 
-        .hamburger {
-            position: fixed;
-            background-color: transparent;
-            left: 0;
-            top: 0;
-            height: 30px;
-            width: 30px;
-            padding: 20px 20px;
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
-            transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
-            z-index: 1002;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .hamburger.is-active {
-            background-color: none;
-        }
-
-        ._layer {
-            background: #333333;
-            margin-bottom: 4px;
-            border-radius: 2px;
-            width: 28px;
-            height: 4px;
-            opacity: 1;
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
-            transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
-        }
-
-        .hamburger:hover .-top {
-            -webkit-transform: translateY(-100%);
-            -ms-transform: translateY(-100%);
-            transform: translateY(-100%);
-        }
-
-        .hamburger:hover .-bottom {
-            -webkit-transform: translateY(50%);
-            -ms-transform: translateY(100%);
-            transform: translateY(100%);
-        }
-
-        .hamburger.is-active .-top {
-            -webkit-transform: translateY(200%) rotate(45deg) !important;
-            -ms-transform: translateY(200%) rotate(45deg) !important;
-            transform: translateY(200%) rotate(45deg) !important;
-        }
-
-        .hamburger.is-active .-mid {
-            opacity: 0;
-        }
-
-        .hamburger.is-active .-bottom {
-            -webkit-transform: translateY(-200%) rotate(135deg) !important;
-            -ms-transform: translateY(-200%) rotate(135deg) !important;
-            transform: translateY(-200%) rotate(135deg) !important;
-        }
-
-        .menuppal.is-active {
-            transform: translate3d(0px, 0px, 0px);
-        }
-
-        .menuppal {
-            background-color: rgba(255, 255, 255, 0.95);
-            bottom: 0;
-            height: 100%;
-            left: 0;
-            overflow-y: scroll;
-            position: fixed;
-            top: 0;
-            transform: translate3d(0px, -100%, 0px);
-            transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+        .trail-container {
+            position: absolute;
             width: 100%;
-            z-index: 1001;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        .menuppal ul {
-            margin: 0;
-            padding: 0;
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #39FF14; /* Color verde fluorescente */
+            border-radius: 50%;
+            font-size: 12px;
+            color: #fff; /* Color del texto */
+            opacity: 0.8; /* Opacidad del rastro */
+            animation: trailAnimation 1s linear infinite;
         }
 
-        .menuppal ul li {
-            list-style: none;
-            text-align: center;
-            font-family: Verdana, Arial, Helvetica;
-            color: #369;
-            font-size: 1.5rem;
-            line-height: 3em;
-            height: 3em;
-            color: #369;
-            text-transform: none;
-            font-weight: bold;
-        }
-
-        .menuppal ul li a {
-            text-decoration: none;
-            color: #369;
-        }
-
-        .menuppal ul li a:hover {
-            text-decoration: none;
-            color: #333;
+        @keyframes trailAnimation {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(-50% + 5px));
+                opacity: 1;
+            }
         }
     </style>
-    <title>Menú de Hamburguesa</title>
 </head>
 <body>
-    <div class="hamburger">
-        <div class="_layer -top"></div>
-        <div class="_layer -mid"></div>
-        <div class="_layer -bottom"></div>
-    </div>
-    <nav class="menuppal">
-        <ul>
-            <li><a href="#">Enlace 1</a></li>
-            <li><a href="#">Enlace 2</a></li>
-            <li><a href="#">Enlace 3</a></li>
-        </ul>
-    </nav>
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const menuppal = document.querySelector('.menuppal');
+    <div class="trail-container"></div>
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('is-active');
-            menuppal.classList.toggle('is-active');
-        });
+    <script>
+        const trailContainer = document.querySelector('.trail-container');
+        const numberOfTrails = 30; // Cambia el número de rastros que deseas mostrar.
+
+        function createTrail() {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = getRandomPosition(window.innerWidth) + 'px';
+            const randomCharCode = Math.floor(Math.random() * (0x4E00 - 0x3400) + 0x3400);
+            trail.textContent = String.fromCharCode(randomCharCode);
+            trailContainer.appendChild(trail);
+            setTimeout(() => {
+                trailContainer.removeChild(trail);
+            }, 2000); // Duración del rastro (2 segundos en este ejemplo)
+        }
+
+        function getRandomPosition(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function generateRandomTrails() {
+            for (let i = 0; i < numberOfTrails; i++) {
+                createTrail();
+            }
+            requestAnimationFrame(generateRandomTrails);
+        }
+
+        // Inicia la generación de rastros aleatorios
+        generateRandomTrails();
     </script>
 </body>
 </html>

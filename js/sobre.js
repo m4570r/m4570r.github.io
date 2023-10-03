@@ -68,6 +68,13 @@ function startSecondTerminalCode() {
   const titleBar3 = terminal3.querySelector('.terminal-title3');
   const controls3 = terminal3.querySelector('.terminal-controls3');
 
+  // Muestra "Cargando frameworks" antes de ejecutar los comandos
+  const loadingElement3 = document.createElement('div');
+  loadingElement3.className = 'terminal-output3';
+  loadingElement3.textContent = 'Cargando frameworks...';
+  terminal3.appendChild(loadingElement3);
+
+
   // Función para simular la escritura de un comando o respuesta con efecto de escritura
   async function typeText3(text, isInput) {
     const textElement3 = document.createElement('div');
@@ -81,20 +88,23 @@ function startSecondTerminalCode() {
     }
   }
 
-  // Función para ejecutar los comandos y mostrar las respuestas con efecto de escritura
-  async function executeCommands3() {
-    for (const { command, response } of commandsAndResponses3) {
-      await typeText3(command, true);
-      if (response) {
-        await typeText3(response, false);
-        // Espera 1 segundo después de mostrar la respuesta antes de eliminarla
-        await sleep(1000);
-        // Elimina la respuesta (terminal-output3)
-        const outputElements3 = terminal3.querySelectorAll('.terminal-output3');
-        outputElements3[outputElements3.length - 1].remove();
-      }
+// Función para ejecutar los comandos y mostrar las respuestas con efecto de escritura
+async function executeCommands3() {
+  // Elimina el mensaje de "Cargando frameworks"
+  loadingElement3.remove();
+
+  for (const { command, response } of commandsAndResponses3) {
+    await typeText3(command, true);
+    if (response) {
+      await typeText3(response, false);
+      // Espera 1 segundo después de mostrar la respuesta antes de eliminarla
+      await sleep(1000);
+      // Elimina la respuesta (terminal-output3)
+      const outputElements3 = terminal3.querySelectorAll('.terminal-output3');
+      outputElements3[outputElements3.length - 1].remove();
     }
   }
+}
 
   // Espera 5 segundos antes de mostrar el mensaje de carga (simulación)
   setTimeout(() => {

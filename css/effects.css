@@ -1,0 +1,7 @@
+.grid-item {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    color: #00FF00; /* Cambiar el color a verde fluorescente */
+	z-index:-1;
+}

@@ -1,0 +1,7 @@
+.fa-bug {
+    font-size: 24px;
+    position: absolute;
+    pointer-events: none;
+	color: #0f0;
+	z-index:-1;
+}
